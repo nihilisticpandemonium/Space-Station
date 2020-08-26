@@ -1,9 +1,9 @@
 {
     "name": "tater_spacestation",
     "version": "0.1.7",
-    "title": "Taterjr Space Station",
-    "author": "taterjr",
+    "title": "Taterjr Space Station (Unofficial 1.0 Fix)",
+    "author": "nihilisticpandemonium",
     "homepage": "https://forums.factorio.com/viewtopic.php?f=190&t=61497",
-    "factorio_version": "0.16",
+    "factorio_version": "1.0",
     "description": "Adds a playable spacestation"
 }

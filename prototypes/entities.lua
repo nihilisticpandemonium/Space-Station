@@ -45,6 +45,7 @@ local spaceAssembler = table.deepcopy(data.raw["assembling-machine"]["assembling
 local updates = {
    name = "space-assembling-machine",
    icon = "__tater_spacestation__/graphics/space_assembling_machine/space-assembling-machine-icon.png",
+   icon_size = 32,
    minable = {
       hardness = 0.2,
       mining_time = 0.5,

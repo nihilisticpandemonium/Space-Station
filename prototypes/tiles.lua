@@ -134,7 +134,7 @@ function tile_variations_template(normal_res_picture, normal_res_transition, hig
 end
 
 
-function water_transition_template(to_tiles, normal_res_transition, high_res_transition, options)
+function water_transition_template(group, to_tiles, normal_res_transition, high_res_transition, options)
   local function make_transition_variation(src_x, src_y, cnt_, line_len_, is_tall)
     return
     {
@@ -159,6 +159,7 @@ function water_transition_template(to_tiles, normal_res_transition, high_res_tra
 
   local t = options.base or {}
   t.to_tiles = to_tiles
+  t.transition_group = group
   local default_count = options.count or 16
   for k,y in pairs({inner_corner = 0, outer_corner = 288, side = 576, u_transition = 864, o_transition = 1152}) do
     local count = options[k .. "_count"] or default_count
@@ -226,6 +227,7 @@ local grass_transitions =
 {
   water_transition_template
   (
+      77,
       water_tile_type_names,
       "__base__/graphics/terrain/water-transitions/grass.png",
       "__base__/graphics/terrain/water-transitions/hr-grass.png",
@@ -245,6 +247,7 @@ local grass_transitions_between_transitions =
 {
   water_transition_template
   (
+      78,
       water_tile_type_names,
       "__base__/graphics/terrain/water-transitions/grass-transition.png",
       "__base__/graphics/terrain/water-transitions/hr-grass-transition.png",
@@ -260,6 +263,8 @@ local grass_transitions_between_transitions =
   ),
 }
 
+grass_transitions_between_transitions[1].transition_group1 = 77
+grass_transitions_between_transitions[1].transition_group2 = 78
 
 local space_layer = "layer-" .. settings.startup["tater-spacestation-space-collision"].value
 local spaceTile = table.deepcopy(data.raw.tile["grass-1"])
@@ -302,7 +307,7 @@ local updates = {
         },
         {
           picture = "__tater_spacestation__/graphics/water/water1.png",
-          count = 6,
+          count = 8,
           size = 4,
           hr_version =
           {
