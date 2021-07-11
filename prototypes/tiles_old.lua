@@ -4,7 +4,7 @@ local updates = {
    minable = {hardness = 0, mining_time = -1, result = "space-station-tile"},
    collision_mask = {
       --"ground-tile",
-      "layer-11",
+      "layer-13"
    },
 }
 
@@ -18,8 +18,8 @@ local spaceTile = table.deepcopy(data.raw.tile["grass-1"])
 local updates = {
    name = "space-tile",
    collision_mask = {
-      --"water-tile", 
-      "layer-11",
+      --"water-tile",
+      "layer-13",
       "item-layer",
       "resource-layer",
       "player-layer",
